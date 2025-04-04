@@ -1,9 +1,9 @@
 '''
 Blue: if below 80 (suggesting low glucose).
 
-Red: if above 180 (indicating high glucose).
+Red: if above 130 (indicating high glucose).
 
-Green: for values in the normal range.
+Green: for values in the normal range. 70-180
 '''
 
 
@@ -23,7 +23,7 @@ from interactive_tree import generate_interactive_glucose_tree
 if __name__ == "__main__":
 
     # Generate synthetic glucose data with 100 data points using the custom function
-    glucose_data = generate_synthetic_glucose_data(length=100)
+    glucose_data = generate_synthetic_glucose_data()
     
     # Check if the glucose data was successfully generated; if not, print an error and stop the program
     if not glucose_data:
@@ -112,4 +112,4 @@ if __name__ == "__main__":
     # Generate the interactive glucose prediction tree visualization.
     # This function creates an HTML file that displays the interactive tree.
     # The 'depth' parameter is set to the number of predictions, controlling how many levels the tree will have.
-    generate_interactive_glucose_tree(df, "results/glucose_tree_interactive.html", depth=num_predictions)
+    generate_interactive_glucose_tree(df, "glucose_tree_interactive.html", depth=num_predictions)

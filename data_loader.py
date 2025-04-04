@@ -12,8 +12,8 @@ def generate_synthetic_glucose_data(length=100, seed=42):
     # Set the seed for numpy's random number generator to ensure the results are the same every time.
     np.random.seed(seed)
     
-    # Define a base glucose value from which we start. Here, it's set to 110.
-    base_glucose = 110
+    # Define a base glucose value from which we start. Here, it's set to 105.
+    base_glucose = 105
     
     # Create an empty list called 'data' where each generated data point will be stored.
     data = []

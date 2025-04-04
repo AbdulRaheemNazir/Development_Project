@@ -9,7 +9,8 @@ import math
 
 # Define a function to generate an interactive visualization of a glucose prediction tree.
 # The function takes in a DataFrame 'df', a file path 'save_path' for the output HTML, and a 'depth' to control tree levels.
-def generate_interactive_glucose_tree(df, save_path="results/glucose_tree_interactive.html", depth=2):
+def generate_interactive_glucose_tree(df, save_path="glucose_tree_interactive.html", depth=2):
+    # This line above that contains the depth parameter being 2 or whatever value will always be overidden with the value decided in terminal
     # Create empty lists to store the x and y coordinates of nodes (points) in the tree.
     node_x = []
     node_y = []
@@ -26,8 +27,8 @@ def generate_interactive_glucose_tree(df, save_path="results/glucose_tree_intera
         # If the glucose value is less than 80, return 'blue' to indicate a low value.
         if value < 80:
             return 'blue'
-        # If the glucose value is greater than 180, return 'red' to indicate a high value.
-        elif value > 180:
+        # If the glucose value is greater than 130, return 'red' to indicate a high value.
+        elif value > 130:
             return 'red'
         # For values in between, return 'green' to indicate a normal range.
         else:
@@ -50,9 +51,8 @@ def generate_interactive_glucose_tree(df, save_path="results/glucose_tree_intera
         new_y = y + dy
 
         # Extend the edge lists with the current and new coordinates.
-        # The 'None' value is added to break the line between different segments in Plotly.
-        edge_x.extend([x, new_x, None])
-        edge_y.extend([y, new_y, None])
+        edge_x.extend([x, new_x])
+        edge_y.extend([y, new_y])
         # Add the new coordinates to the node lists.
         node_x.append(new_x)
         node_y.append(new_y)
